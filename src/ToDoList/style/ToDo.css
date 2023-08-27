@@ -1,0 +1,74 @@
+/* Style for the container div */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Style for the to-do list container */
+  .to-do-container {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 500px;
+  }
+  
+  /* Style for the To Do List title */
+  .to-do-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the to-do input and buttons */
+  .to-do-form {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .to-do-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style for the to-do list items */
+  .to-do-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .to-do-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .to-do-item span {
+    flex: 1;
+  }
+  
+  .mark-done {
+    text-decoration: line-through;
+  }
+  
