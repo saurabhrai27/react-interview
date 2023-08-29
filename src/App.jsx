@@ -1,9 +1,11 @@
+// import ToDoList from './ToDoList/ToDoList';
+import TicTacToe from './components/TicTacToe/TicTacToe';
 
 function App() {
 
   return (
     <>
-    <h2>Hello</h2>
+      <TicTacToe />
     </>
   )
 }
