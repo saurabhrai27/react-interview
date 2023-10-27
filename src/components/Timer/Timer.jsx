@@ -1,26 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Timer = () => {
   const initialTime = 5000; // Initial time in milliseconds
   const [time, setTime] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
+  const timerRef = useRef(null); // Use useRef to keep track of the timer
 
   useEffect(() => {
-    let timer;
     if (isRunning) {
-      timer = setInterval(() => {
+      timerRef.current = setInterval(() => {
         setTime((prevTime) => {
           if (prevTime === 0) {
-            clearInterval(timer);
+            clearInterval(timerRef.current);
             setIsRunning(false);
+            return 0; // Ensure the timer never goes below 0
           }
           return prevTime - 1000;
         });
       }, 1000);
+    } else {
+      clearInterval(timerRef.current); // Clear the timer if it's not running
     }
 
     return () => {
-      clearInterval(timer);
+      clearInterval(timerRef.current); // Clear the timer on component unmount
     };
   }, [isRunning]);
 
@@ -33,6 +36,7 @@ const Timer = () => {
   };
 
   const handleReset = () => {
+    clearInterval(timerRef.current); // Clear the timer when resetting
     setTime(initialTime);
     setIsRunning(false);
   };
